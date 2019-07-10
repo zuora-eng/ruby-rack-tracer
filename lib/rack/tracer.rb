@@ -68,7 +68,7 @@ module Rack
       raise
     ensure
       begin
-        scope.close
+        scope.close if scope
       ensure
         @on_finish_span.call(span) if @on_finish_span
       end
